@@ -32,7 +32,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         
         $product->save();
-        return back()->withSuccess('Blog Created !!');
+        return redirect()->route('products.index')->with('success', 'Task created successfully');
     }
 
     public function edit($id){

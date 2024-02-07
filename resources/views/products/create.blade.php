@@ -20,6 +20,11 @@
     </div>
     @endif
 
+    <div class="container text-center mt-5">
+        <h1>Welcome to the Blogosphere!</h1>
+         <p class="lead">Share your thoughts, experiences, and passion with the world. Let your voice be heard and your ideas inspire others.</p>
+    </div>
+
 
     <div class="container">
         <div class="container">
@@ -42,7 +47,7 @@
                                 <span class="text-danger">{{$errors->first('description')}}</span>
                                 @endif
                              </div>
-                             <button type="submit" class="btn btn-dark">Submit</button>
+                              <button type="submit" class="btn btn-dark mt-2">Submit</button>
                         </form>
                     </div>
                 </div>

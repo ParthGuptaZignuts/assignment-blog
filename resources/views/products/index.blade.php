@@ -17,14 +17,14 @@
 
       
     <div class="container">
-        <div class="text-end">
+        <div class="text-end m-3">
             <a href="products/create" class="btn btn-dark">New Blog </a>
         </div>
     </div>
 
-    <h1>All Blogs</h1>
+    <h1 class="text-center ">All Blogs</h1>
 
-      <div class="container">
+      <div class="container mt-4">
         <div class="row justify-content-center">
             @foreach($products as $product)
             <div class="col-md-4 mb-4">
@@ -41,12 +41,9 @@
             @endforeach
         </div>
 
-        {{$products->links()}}
-        {{-- <div class="row justify-content-center">
-            <div class="col-md-6">
-                {{ $posts->links('pagination::bootstrap-5') }} <!-- Pagination links -->
-            </div>
-        </div> --}}
+        <div class="mx-auto">
+            {{$products->links()}}
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
