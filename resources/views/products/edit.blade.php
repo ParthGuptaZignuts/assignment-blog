@@ -44,7 +44,7 @@
                                 <span class="text-danger">{{$errors->first('description')}}</span>
                                 @endif
                              </div>
-                             <button type="submit" class="btn btn-dark">Submit</button>
+                             <button type="submit" class="btn btn-dark mt-3">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -54,6 +54,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-{{-- action="/products/store"> --}}

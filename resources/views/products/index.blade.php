@@ -26,11 +26,11 @@
 
       <div class="container mt-4">
         <div class="row justify-content-center">
+            {{-- feteching data --}}
             @foreach($products as $product)
             <div class="col-md-4 mb-4">
                 <div class="card" >
                     <div class="card-body">
-                        {{-- <h5>{{$product->id}}</h5> --}}
                         <a href="products/{{$product->id}}/show" class="text-dark"> <h5 class="card-title">{{ $product->name }}</h5> </a>
                         <p class="card-text">{{ \Illuminate\Support\Str::limit($product->description, 20, '...') }}</p>
                         <a href="products/{{$product->id}}/edit" class="btn btn-primary">Edit</a>
@@ -41,6 +41,7 @@
             @endforeach
         </div>
 
+        {{-- pagination --}}
         <div class="mx-auto">
             {{$products->links()}}
         </div>

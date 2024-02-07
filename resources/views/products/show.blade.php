@@ -14,10 +14,12 @@
         
         <div class="mx-auto">
                 <div class="card p-4">
+                    {{-- calling data from AppController Show class --}}
                     <h2>Title : <b>{{$product->name}}</h1>
                     <h4>Description :<b>{{$product->description}}</b></h3>   
                 </div>
         </div>
+        {{-- back to index (home page) --}}
         <a href="{{ route('products.index') }}" class="btn btn-primary mt-5">Go Back to Home</a>
     </div>
 
