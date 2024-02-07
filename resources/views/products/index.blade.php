@@ -12,9 +12,7 @@
     
           <ul class="navbar-nav">
             <li class="nav-item"><a href="/" class="nav-link text-light">Blog</a></li>
-           
           </ul>
-        
       </nav>
 
       
@@ -24,7 +22,7 @@
         </div>
     </div>
 
-    <h1>Blogs</h1>
+    <h1>All Blogs</h1>
 
       <div class="container">
         <div class="row justify-content-center">
@@ -32,16 +30,18 @@
             <div class="col-md-4 mb-4">
                 <div class="card" >
                     <div class="card-body">
-                        <h5>{{$product->id}}</h5>
-                        <h5 class="card-title">{{ $product->name }}</h5>
+                        {{-- <h5>{{$product->id}}</h5> --}}
+                        <a href="products/{{$product->id}}/show" class="text-dark"> <h5 class="card-title">{{ $product->name }}</h5> </a>
                         <p class="card-text">{{ \Illuminate\Support\Str::limit($product->description, 20, '...') }}</p>
-                        <a href="products/{{$product->id}}/edit" class="btn btn-primary">View</a>
+                        <a href="products/{{$product->id}}/edit" class="btn btn-primary">Edit</a>
+                        <a href="products/{{$product->id}}/delete" class="btn btn-danger" onclick="return confirm('Are You Sure You Want To Delete ?')">Delete</a>
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
 
+        {{$products->links()}}
         {{-- <div class="row justify-content-center">
             <div class="col-md-6">
                 {{ $posts->links('pagination::bootstrap-5') }} <!-- Pagination links -->

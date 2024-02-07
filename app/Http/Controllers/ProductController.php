@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     //
     public function index(){
-        $products = Product::get();
+        $products = Product::latest()->paginate(3);
         return view('Products.index' ,['products' =>$products]);
     }
 
@@ -36,6 +36,34 @@ class ProductController extends Controller
     }
 
     public function edit($id){
-        dd($id);
+        $product = Product::where('id' ,$id)->first();
+        return view('products.edit' ,['product' =>$product]);
+    }
+
+    public function update(Request $request,$id){
+        $request->validate([
+            'name' => 'required',
+            'description' =>'required'
+        ]);
+        
+        $product = Product::where('id' ,$id)->first();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        
+        $product->save();
+        return back()->withSuccess('Blog Updated !!'); 
+    }
+
+    public function destory($id){
+        $product = Product::where('id' ,$id)->first();
+        $product->delete();
+
+        return back()->withSuccess('Blog Deleted !!'); 
+    }
+
+    public function show($id){
+        $product = Product::where('id' ,$id)->first();
+
+        return view('products.show',['product' =>$product]);
     }
 }
