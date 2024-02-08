@@ -24,6 +24,12 @@
         {{-- back to index (home page) --}}
         <a href="{{ route('products.index') }}" class="btn btn-primary mt-5">Go Back to Home</a>
 
+    
+      
+      
+
+        {{-- {{dd($comment->body)}} --}}
+      
 
         {{-- this is the comment section  --}}
         <div class="container mt-5">
@@ -43,6 +49,23 @@
       
     </div>
 </div>
+
+
+<div class="container">
+  <h4 class="mt-4 text-center">Display Comments</h4>
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          @foreach($comments as $comment)
+              <div class="card mb-2">
+                  <div class="card-body">
+                      <p>{{$comment->body}}</p>
+                  </div>
+              </div>
+          @endforeach
+      </div>
+  </div>
+</div>
+
 
 
    

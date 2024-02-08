@@ -43,10 +43,5 @@ class CommentController extends Controller
         $comment=Comment::findOrFail($id);
         $comment->delete();
         return redirect()->back()->with('success','comment deleted successfully');
-    }
-
-    
-
-
-    
+    }    
 }

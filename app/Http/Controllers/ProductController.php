@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -63,9 +64,15 @@ class ProductController extends Controller
     }
 
     public function show($id){
-        
-        $product = Product::where('id' ,$id)->first();
-        return view('products.show',['product' =>$product]);
+        // $product = Product::where('id' ,$id)->first();
+        // return view('products.show',['product' =>$product]);
+
+       
+
+        $product = Product::findOrFail($id);
+        $comments = Comment::where('products_id',$id)->get();
+        return view('products.show', compact('product','comments'));
+
     }
 
 
