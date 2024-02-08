@@ -37,11 +37,12 @@ class CommentController extends Controller
         $comment->save();
         return redirect()->back()->with('success','comment updated successfully');
     }
-
+  
     public function destory($id)
     {
-        $comment=Comment::findOrFail($id);
+        $comment = Comment::findOrFail($id);
         $comment->delete();
-        return redirect()->back()->with('success','comment deleted successfully');
-    }    
+
+        return redirect()->back()->with('success', 'Comment deleted successfully');
+    }
 }

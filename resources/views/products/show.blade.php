@@ -50,32 +50,29 @@
     </div>
 </div>
 
-
 <div class="container">
   <h4 class="mt-4 text-center">Display Comments</h4>
   <div class="row justify-content-center">
       <div class="col-md-8">
           @foreach($comments as $comment)
               <div class="card mb-2">
-                  <div class="card-body">
-                      <p>{{$comment->body}}</p>
+                  <div class="card-body d-flex justify-content-between align-items-center">
+                      <p class="mb-0">{{$comment->body}}</p>
+                      <!-- Delete Button -->
+                      <div class="mt-2">
+                        <form action="{{route('comments.destory',$comment->id)}}" method="POST" style="display: inline;">
+                        @csrf 
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm btn-danger" onclicke="return confrim('are you sure you want to delete this comment?')">Delete</button>
+                    </form>
+                    </div>
                   </div>
               </div>
           @endforeach
       </div>
   </div>
 </div>
-
-
-
-   
-  
-
       {{-- {{dd($comments->body)}} --}}
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
