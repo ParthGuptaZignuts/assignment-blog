@@ -35,9 +35,10 @@
         <div class="container mt-5">
           <div class="row justify-content-center">
               <div class="col-md-6">
-                  <form method="POST" action="{{ route('comments.store', $product->id) }}">
+                  <form method="POST" action="{{ route('products.comment.store') }}">
                       @csrf
                       <div class="mb-3">
+                        <input type="hidden" name="product_id" value="{{$product->id}}">
                           <label for="commentBody" class="form-label">Comment:</label>
                           <textarea class="form-control" id="commentBody" name="body" rows="4" required></textarea>
                       </div>
