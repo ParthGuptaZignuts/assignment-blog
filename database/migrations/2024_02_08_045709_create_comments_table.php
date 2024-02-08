@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id')->default(0);
+            //$table->unsignedBigInteger('product_id');
             $table->text('body');
             $table->timestamps();
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade')->constrained('products');
