@@ -23,6 +23,24 @@
         <a href="{{ route('products.index') }}" class="btn btn-primary mt-5">Go Back to Home</a>
     </div>
 
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 d-flex justify-content-center">
+            <form method="POST" action="{{ route('comments.store', $product->id) }}">
+                @csrf
+                <textarea name="body" rows="4" required></textarea><br>
+                <button type="submit">Add Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {{-- {{dd($comments->body)}} --}}
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

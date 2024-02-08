@@ -20,11 +20,15 @@
     </div>
     @endif
 
+    @extends('layouts.app')
+
+   
     <div class="container text-center mt-5">
         <h1>Welcome to the Blogosphere!</h1>
          <p class="lead">Share your thoughts, experiences, and passion with the world. Let your voice be heard and your ideas inspire others.</p>
     </div>
 
+    @section('main')
 
     <div class="container">
         <div class="container">
@@ -54,6 +58,9 @@
             </div>
         </div>
     </div>
+
+    @endsection
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
