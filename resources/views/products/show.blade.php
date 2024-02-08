@@ -8,33 +8,45 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container text-center mt-5">
+  <div class="container text-center mt-5 d-flex align-items-center justify-content-center">
+    <div class="text-center">
         <h1>Welcome to World of Your Stories!</h1>
         <p class="lead">Embark on a journey of inspiration, knowledge, and discovery. Your blog is a tapestry of voices.</p>
-        
+
         <div class="mx-auto">
-                <div class="card p-4">
-                    {{-- calling data from AppController Show class --}}
-                    <h2>Title : <b>{{$product->name}}</h1>
-                    <h4>Description :<b>{{$product->description}}</b></h3>   
-                </div>
+            <div class="card p-4">
+                {{-- calling data from AppController Show class --}}
+                <h2>Title: <b>{{$product->name}}</h2>
+                <h4>Description: <b>{{$product->description}}</b></h4>
+            </div>
         </div>
+
         {{-- back to index (home page) --}}
         <a href="{{ route('products.index') }}" class="btn btn-primary mt-5">Go Back to Home</a>
-    </div>
 
 
-    <div class="container">
-        <div class="row">
-          <div class="col-md-6 d-flex justify-content-center">
-            <form method="POST" action="{{ route('comments.store', $product->id) }}">
-                @csrf
-                <textarea name="body" rows="4" required></textarea><br>
-                <button type="submit">Add Comment</button>
-            </form>
+        {{-- this is the comment section  --}}
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+              <div class="col-md-6">
+                  <form method="POST" action="{{ route('comments.store', $product->id) }}">
+                      @csrf
+                      <div class="mb-3">
+                          <label for="commentBody" class="form-label">Comment:</label>
+                          <textarea class="form-control" id="commentBody" name="body" rows="4" required></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Add Comment</button>
+                  </form>
+              </div>
           </div>
-        </div>
       </div>
+      
+    </div>
+</div>
+
+
+   
+  
 
       {{-- {{dd($comments->body)}} --}}
 
