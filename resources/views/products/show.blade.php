@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.repeatedCode')
+
+ @section('main')  
   <div class="container text-center mt-5 d-flex align-items-center justify-content-center">
     <div class="text-center">
         <h1>Welcome to World of Your Stories!</h1>
@@ -73,7 +66,5 @@
       </div>
   </div>
 </div>
-      {{-- {{dd($comments->body)}} --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+@endsection
