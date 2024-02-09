@@ -19,10 +19,6 @@
 
     
       
-      
-
-        {{-- {{dd($comment->body)}} --}}
-      
 
         {{-- this is the comment section  --}}
         <div class="container mt-5">
@@ -54,10 +50,10 @@
                       <p class="mb-0">{{$comment->body}}</p>
                       <!-- Delete Button -->
                       <div class="mt-2">
-                        <form action="{{route('comments.destory',$comment->id)}}" method="POST" style="display: inline;">
+                        <form action="{{route('comments.destory',$comment->id)}}" method="POST" style="display: inline;" id="my-form">
                         @csrf 
                         @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger" onclicke="return confrim('are you sure you want to delete this comment?')">Delete</button>
+                        <button type="submit" class="btn btn-sm btn-danger delete-comment" data-id="{{ $comment->id }}" >Delete</button>
                     </form>
                     </div>
                   </div>
@@ -66,5 +62,15 @@
       </div>
   </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        // Check if a success message exists in the session
+        @if(session('success'))
+            // Display the success message using Toastr
+            toastr.success('{{ session('success') }}');
+        @endif
+    });
+</script>
 
 @endsection
