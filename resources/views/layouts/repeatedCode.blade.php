@@ -18,10 +18,17 @@
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    
-       
+       {{-- sweet alert cdn --}}
        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <!-- SweetAlert2 CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
-    <script>
+        {{-- sweet alert --}}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+       {{-- delete sweet alert --}}
+        <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Attach a click event listener to all delete buttons with class 'delete-product'
             const deleteButtons = document.querySelectorAll('.delete-product');
@@ -48,14 +55,15 @@
                 });
             });
         });
-    </script>
+        </script>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Attach a click event listener to all edit buttons with class 'edit-product'
-        const editButtons = document.querySelectorAll('.edit-product');
+        {{-- edit sweet alert --}}
+        <script>
+         document.addEventListener('DOMContentLoaded', function () {
+            // Attach a click event listener to all edit buttons with class 'edit-product'
+            const editButtons = document.querySelectorAll('.edit-product');
 
-        editButtons.forEach(button => {
+            editButtons.forEach(button => {
             button.addEventListener('click', function (event) {
                 event.preventDefault();
 
@@ -71,15 +79,27 @@
                     cancelButtonColor: '#d33',
                     confirmButtonText: 'Yes, edit it!'
                 }).then((result) => {
-                    if (result.isConfirmed) {
+                     if (result.isConfirmed) {
                         // If user clicks 'Yes', redirect to edit route
                         window.location.href = '/products/' + productId + '/edit';
-                    }
+                         }
+                     });
                 });
             });
         });
-    });
-    </script>
+        </script>
+
+
+        <!-- CSS file for Toastr -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+        <!-- JavaScript files for Toastr (jQuery is required) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+
+    
+    
 
   
 
@@ -94,4 +114,16 @@
 
     @yield('main')
 </body>
+
+<script>
+    // script to remove alert Message after some time
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+            var successMessage = document.getElementById('alert-message');
+            if (successMessage) {
+                successMessage.remove();
+            }
+        }, 2000);
+    });
+</script>
 </html>

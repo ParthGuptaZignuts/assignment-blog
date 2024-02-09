@@ -16,7 +16,7 @@
             <div class="row justify-content-center">
                 <div class="col-sm-10">
                     <div class="card mt-3 p-3">
-                        <form method="POST" action="{{route('products.store')}}" enctype="multipart/form-data">
+                        <form method="POST"  action="{{route('products.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="">Title</label>
@@ -32,13 +32,26 @@
                                 <span class="text-danger">{{$errors->first('description')}}</span>
                                 @endif
                              </div>
-                              <button type="submit" class="btn btn-dark mt-2">Submit</button>
+                              <button type="submit" class="btn btn-dark mt-2" id="button">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <script>
+        $(document).ready(function() {
+            // Check if a success message exists in the session
+            @if(session('success'))
+                // Display the success message using Toastr
+                toastr.success('{{ session('success') }}');
+            @endif
+        });
+    </script>
+
+
 
 
 @endsection

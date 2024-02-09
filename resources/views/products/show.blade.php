@@ -63,4 +63,14 @@
   </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        // Check if a success message exists in the session
+        @if(session('success'))
+            // Display the success message using Toastr
+            toastr.success('{{ session('success') }}');
+        @endif
+    });
+</script>
+
 @endsection
