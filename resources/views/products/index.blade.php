@@ -4,12 +4,12 @@
 
       
     <div class="container">
-        <div class="text-end m-3">
-            <a href="products/create" class="btn btn-dark">New Blog </a>
+        <div class="text-right mt-2">
+            <a href="products/create" class="btn btn-dark">New Blog</a>
         </div>
-    </div>
+    
 
-    <h1 class="text-center ">All Blogs</h1>
+        <h1 class="text-center ">All Blogs</h1>
 
 
         {{-- <div class="container mt-4">
@@ -56,7 +56,7 @@
                 {{$products->links()}}
             </div>
         </div>
-        
+    </div>
        
         
         

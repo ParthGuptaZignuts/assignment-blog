@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>blog system</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 
 
+       <!-- Fonts -->
+       <link rel="preconnect" href="https://fonts.bunny.net">
+       <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+       <!-- Scripts -->
+       @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+       
+       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -74,14 +81,11 @@
     });
     </script>
 
+  
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a href="/" class="nav-link text-light">Blog</a></li>
-        </ul>
-    </nav>
-
+    @include('layouts.navigation')
     @if($message = Session::get('successs'))
     <div class="alert alert-success alert-block">
         <strong>{{$message}}</strong>        

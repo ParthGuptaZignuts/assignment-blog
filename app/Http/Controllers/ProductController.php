@@ -54,6 +54,11 @@ class ProductController extends Controller
         
         $product->save();
         return redirect()->route('products.index')->withSuccess('Blog Updated !!'); 
+
+        // showing message but not redirecting 
+        // return redirect('/products/'.$id.'/edit')->with('success', 'Blog updated successfully!');
+
+
     }
 
     public function destory($id){
