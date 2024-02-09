@@ -154,10 +154,10 @@
     </div>
 
     <!-- Right Side Text -->
-    <div class="right-side-container">
+    {{-- <div class="right-side-container">
         <h2 class="right-side-title">Discover Our Blog</h2>
         <p class="right-side-description">Explore a world of ideas, knowledge, and insights. Our blog system offers a diverse range of articles covering various topics. Whether you're a reader or a writer, you'll find a welcoming community here.</p>
-    </div>
+    </div> --}}
 
 </body>
 
