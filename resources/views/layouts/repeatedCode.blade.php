@@ -43,6 +43,37 @@
         });
     </script>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Attach a click event listener to all edit buttons with class 'edit-product'
+        const editButtons = document.querySelectorAll('.edit-product');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                const productId = this.getAttribute('data-id');
+
+                // Use SweetAlert to confirm the edit action
+                Swal.fire({
+                    title: 'Edit Blog?',
+                    text: 'Are you sure you want to edit this Blog?',
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, edit it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If user clicks 'Yes', redirect to edit route
+                        window.location.href = '/products/' + productId + '/edit';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark">

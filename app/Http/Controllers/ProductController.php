@@ -53,7 +53,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         
         $product->save();
-        return back()->withSuccess('Blog Updated !!'); 
+        return redirect()->route('products.index')->withSuccess('Blog Updated !!'); 
     }
 
     public function destory($id){
