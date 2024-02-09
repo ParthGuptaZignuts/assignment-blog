@@ -7,6 +7,42 @@
     <title>blog system</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Attach a click event listener to all delete buttons with class 'delete-product'
+            const deleteButtons = document.querySelectorAll('.delete-product');
+    
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const productId = this.getAttribute('data-id');
+    
+                    // Use SweetAlert to confirm the delete action
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'You won\'t be able to revert this!',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // If user clicks 'Yes', redirect to delete route
+                            window.location.href = '/products/' + productId + '/delete';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-sm bg-dark">
