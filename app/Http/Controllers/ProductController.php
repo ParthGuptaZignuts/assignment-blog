@@ -70,7 +70,7 @@ class ProductController extends Controller
        
 
         $product = Product::findOrFail($id);
-        $comments = Comment::where('products_id',$id)->get();
+        $comments = Comment::where('product_id',$id)->get();
         return view('products.show', compact('product','comments'));
 
     }

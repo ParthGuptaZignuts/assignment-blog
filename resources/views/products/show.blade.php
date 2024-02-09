@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.repeatedCode')
+
+ @section('main')  
   <div class="container text-center mt-5 d-flex align-items-center justify-content-center">
     <div class="text-center">
         <h1>Welcome to World of Your Stories!</h1>
@@ -35,9 +28,10 @@
         <div class="container mt-5">
           <div class="row justify-content-center">
               <div class="col-md-6">
-                  <form method="POST" action="{{ route('comments.store', $product->id) }}">
+                  <form method="POST" action="{{ route('products.comment.store') }}">
                       @csrf
                       <div class="mb-3">
+                        <input type="hidden" name="product_id" value="{{$product->id}}">
                           <label for="commentBody" class="form-label">Comment:</label>
                           <textarea class="form-control" id="commentBody" name="body" rows="4" required></textarea>
                       </div>
@@ -72,7 +66,5 @@
       </div>
   </div>
 </div>
-      {{-- {{dd($comments->body)}} --}}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+@endsection

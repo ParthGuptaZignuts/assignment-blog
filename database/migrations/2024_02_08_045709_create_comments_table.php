@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            //$table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('product_id');
             $table->text('body');
             $table->timestamps();
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade')->constrained('products');
+            $table->foreign('product_id')->references('id')->on('products');
+            // $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade')->constrained('products');
         });
     }
 
@@ -27,5 +28,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('comments');
-    }
+  }
 };

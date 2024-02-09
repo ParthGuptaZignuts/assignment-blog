@@ -8,16 +8,19 @@ use App\Models\Product;
 
 class CommentController extends Controller
 {
-    public function store(Request $request, $productId)
+    public function store(Request $request)
     {
         $request->validate([
             'body' => 'required',
         ]);
     
-        $comment = new Comment;
-        $comment->products_id = $productId;
-        $comment->body= $request->input('body');
-        $comment->save();
+        $comment = Comment::create($request->only('body', 'product_id'));
+        // $comment = new Comment;
+
+
+        // $comment->products_id = ;
+        // $comment->body= $request->input('body');
+        // $comment->save();
     
         return redirect()->back()->with('success', 'Comment added successfully.');
     }

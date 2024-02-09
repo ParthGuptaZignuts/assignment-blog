@@ -45,9 +45,12 @@ Route::get('products/{id}/edit',[ProductController::class,'edit']);
 Route::put('products/{id}/update',[ProductController::class,'update']);
 Route::get('products/{id}/delete',[ProductController::class,'destory']);
 Route::get('products/{id}/show',[ProductController::class,'show']);
-Route::post('', [CommentController::class,'store'])->name('comments.store');
+//Route::post('', [CommentController::class,'store'])->name('comments.store');
 
+
+Route::post('products/comment/store',[CommentController::class,'store'])->name('products.comment.store');
 Route::resource('comments',CommentController::class)->only(['store','update','destory']);
+
 Route::delete('/comments/{id}', [CommentController::class,'destory'])->name('comments.destory');
 
 
