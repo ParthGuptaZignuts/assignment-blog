@@ -24,6 +24,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// this is the redirect to products
+Route::redirect('/','/products');
+
 // this is the route of dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -47,13 +50,12 @@ Route::get('products/{id}/delete',[ProductController::class,'destory']);
 Route::get('products/{id}/show',[ProductController::class,'show']);
 //Route::post('', [CommentController::class,'store'])->name('comments.store');
 
+Route::get('products/{id}','App\Http\Controllers\ProductController@show');
+
 
 Route::post('products/comment/store',[CommentController::class,'store'])->name('products.comment.store');
 Route::resource('comments',CommentController::class)->only(['store','update','destory']);
-
 Route::delete('/comments/{id}', [CommentController::class,'destory'])->name('comments.destory');
-
-
 });
 
 require __DIR__.'/auth.php';

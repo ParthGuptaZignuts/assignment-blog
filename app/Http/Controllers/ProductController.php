@@ -71,10 +71,11 @@ class ProductController extends Controller
     public function show($id){
         // $product = Product::where('id' ,$id)->first();
         // return view('products.show',['product' =>$product]);
-
-       
-
         $product = Product::findOrFail($id);
+        if(!$product){
+            abort(404);
+        }
+        
         $comments = Comment::where('product_id',$id)->get();
         return view('products.show', compact('product','comments'));
 
